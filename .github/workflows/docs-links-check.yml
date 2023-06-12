@@ -3,7 +3,7 @@ name: Docs Links Check
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0,10,20,30,40,50 * * * *"
+    - cron: "0 12 * * 6" # runs every saturday at 12:00 UTC
 
 jobs:
   docs-links-check:

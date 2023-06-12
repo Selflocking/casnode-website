@@ -1,6 +1,9 @@
 name: Check links for modified files
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
 
 jobs:
   docs-links-check:
