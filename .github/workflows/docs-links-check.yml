@@ -1,0 +1,21 @@
+name: Docs Links Check
+on:
+  schedule:
+    - cron: "0 20 * * 6" # runs every saturday at 8 pm
+
+jobs:
+  docs-links-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
+
+      - name: Check Links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes' # only show errors in output.
+          # use-verbose-mode: 'yes' # show detailed HTTP status for checked links.
+          folder-path: 'docs/' # only check the docs/ folder
+          # refer to https://github.com/tcort/markdown-link-check#config-file-format
+          config-file: '.github/workflows/docs.links.check.config.json'
+          file-extension: '.md*' # .md or .mdx
