@@ -1,7 +1,7 @@
 name: Docs Links Check
 on:
   schedule:
-    - cron: "0 20 * * 6" # runs every saturday at 8 pm
+    - cron: "0 12 * * 1" # runs every saturday at 8 pm
 
 jobs:
   docs-links-check:
