@@ -1,9 +1,6 @@
-name: Docs Links Check
+name: Check links for modified files
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "20 12 * * 1"
+on: [pull_request]
 
 jobs:
   docs-links-check:
@@ -17,7 +14,7 @@ jobs:
         with:
           use-quiet-mode: 'yes' # only show errors in output.
           # use-verbose-mode: 'yes' # show detailed HTTP status for checked links.
-          folder-path: 'docs/' # only check the docs/ folder
           # refer to https://github.com/tcort/markdown-link-check#config-file-format
           config-file: '.github/workflows/docs.links.check.config.json'
+          check-modified-files-only: 'yes'
           file-extension: '.md*' # .md or .mdx
